@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="fabric.js"></script>
+</head>
+<body>
+
+  <canvas id="c" width="500" height="500"></canvas>
+
+</body>
+
+  <script type="text/javascript">
+    var canvas = new fabric.Canvas('c', {
+      hoverCursor: 'pointer',
+      selection: false
+    });
+
+    var cutout = {
+      width: 300,
+      height: 300,
+      x: 100,
+      y: 50
+    };
+
+    var poly = new fabric.Polygon([
+        { x: 0, y: 0 }, 
+        { x: 0, y: canvas.width }, 
+        { x: canvas.height, y: canvas.width }, 
+        { x: canvas.height, y: 0 }, 
+        { x: 0, y: 0 }, 
+        { x: cutout.x, y: cutout.y }, 
+        { x: cutout.x + cutout.width, y: cutout.y },
+        { x: cutout.x + cutout.width, y: cutout.y + cutout.height },
+        { x: cutout.x, y: cutout.y + cutout.height }, 
+        { x: cutout.x, y: cutout.y },
+        { x: 0, y: 0 }
+      ], { 
+      fill: 'rgba(0,0,0,0.2)',
+    });
+    canvas.add(poly);
+
+    
+  </script>
+
+</html>
